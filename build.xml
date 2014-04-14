@@ -37,7 +37,7 @@
         <apply executable="java" parallel="false">
             <fileset dir="" includes="app.js"/>
             <arg line="-jar"/>
-            <arg path="vendor/yuicompressor-2.4.7.jar"/>
+            <arg path="libs/yuicompressor-2.4.7.jar"/>
             <srcfile/>
             <arg line="-o"/>
             <mapper type="glob" from="*.js" to="*.min.js"/>
