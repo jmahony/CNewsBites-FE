@@ -1,0 +1,62 @@
+<!doctype html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>CNewsBites</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="css/screen.css">
+    </head>
+    <body>
+
+        <h1>CNewsBites</h1>
+
+        <div id="story-draw">
+            <div class="js-draw-bar">Select a story</div>
+            <div class="stories-wrapper">
+                <ul class="stories">
+                    <li><a href="#/story/rugby">Rugby</a>
+                    <li><a href="#/story/cricket">Cricket</a>
+                    <li><a href="#/story/golf">Golf</a>
+                    <li><a href="#/story/football">Football</a>
+                    <li><a href="#/story/olympics">Olympics</a>
+                </ul>
+            </div>
+        </div>
+
+        <div id="js-main" class="container">
+            <div class="select-a-story">Select A Story</div>
+        </div>
+
+        <script id="news-story-template" type="x-tmpl-mustache">
+
+            <h2>{{query}}</h2>
+
+            <div class="news-articles">
+
+                {{#articles}}
+                    {{#startOfGroup}}<div class="day-group">{{/startOfGroup}}
+                    <div class="news-article" id="news-article-{{id}}">
+                        <div class="news-article-left">
+                            {{^hideDate}}<div class="date">{{formattedDate}}</div>{{/hideDate}}
+                        </div>
+                        <div class="news-article-right">
+                            <a href="{{url}}">
+                                <h3 class="news-article-headline">{{{headline}}}</h3>
+                            </a>
+                        </div>
+                    </div>
+                    {{#endOfGroup}}</div>{{/endOfGroup}}
+                {{/articles}}
+
+            </div>
+
+        </script>
+
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script src="js/app.min.js"></script>
+    </body>
+</html>

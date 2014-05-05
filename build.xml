@@ -9,12 +9,9 @@
     <property name="src" location="src"/>
     <property name="build" location="build"/>
 
-
-
     <target name="build">
         <tstamp/>
         <antcall target="clean"></antcall>
-
         
         <copy todir="${build}">
             <fileset dir="${src}" excludes="**/sass/**,**/js/**"/>
@@ -22,16 +19,20 @@
 
         <antcall target="js.minify"></antcall>
         <antcall target="compass"></antcall>
+        <antcall target="puts3"></antcall>
     </target>
 
     <target name="js.minify">
 
         <concat destfile="app.js">
-            <filelist dir="${src}/js"
-                files="a.js, b.js"/>
-            <fileset dir="${src}/js"
-                includes="*.js"
-                excludes="a.js, b.js"/>
+            <filelist dir="${src}/js">
+                <file name="jquery.easing.1.3.js" />
+                <file name="simrou.js" />
+                <file name="mustache.js" />
+                <file name="moment-with-langs.js" />
+                <file name="nprogress.js" />
+                <file name="app.js" />
+            </filelist>
         </concat>
 
         <apply executable="java" parallel="false">
@@ -58,16 +59,20 @@
         <echo message="Stylesheets Compiled!" />
     </target>
 
+    <target name="puts3">
+        <echo message="Uploading To AWS" />
+        <exec executable="/bin/bash" failonerror="true">
+            <arg value="-c" />
+            <arg value="s3cmd sync -r ${build}/* s3://cnewsbit.es &amp;&amp; s3cmd setacl --acl-public --recursive s3://cnewsbit.es" />
+        </exec>
+        <echo message="Uploaded To AWS!" />
+    </target>
+
     <target name="concat-js">
         <echo message="Concatinating JS!" />
         <concat destfile="app.min.js" encoding="UTF-8" outputencoding="UTF-8" fixlastline="true">
             <filelist refid="filelist" />
         </concat>
-
-        <filelist id="filelist" dir="${tempjsdir}">
-           <file name="util.js"/>
-           <file name="commons.js" />
-        </filelist>
         <echo message="Concatinating JS Complete!" />
     </target>
 

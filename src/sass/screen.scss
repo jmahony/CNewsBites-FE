@@ -4,3 +4,141 @@
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 
 @import "compass/reset";
+@import "compass/css3";
+@import "compass/utilities/general/clearfix";
+@import "nprogress";
+
+$baseline : 8;
+$blue: #00415a;
+
+body {
+	font-family: 'Open Sans', sans-serif;
+	font-size: $baseline * 2px;
+	line-height: $baseline * 4px;
+	padding: $baseline * 2px;
+}
+a {
+	text-decoration: none;
+	font-weight: 900;
+	color: rgb(99, 99, 99);
+}
+h1 {
+	font-weight: 300;
+	font-size: $baseline * 6px;
+	text-align: center;
+	line-height: $baseline * 12px;
+}
+
+h2 {
+	font-size: $baseline * 5px;
+	line-height: $baseline * 10px;
+
+}
+
+h4 {
+
+	font-size: $baseline * 4px;
+	line-height: $baseline * 8px;
+}
+
+div#story-draw {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 164px;	
+	background-color: white;
+	z-index:1000;
+}
+
+div.js-draw-bar {
+	margin-top: -32px;
+	padding: 8px;
+	background-color: rgb(0, 65, 90);
+	color: white;
+	font-weight: 700;
+	text-transform: uppercase;
+	text-align: center;
+}
+
+ul.stories {
+	border-bottom: 10px solid #00415a;
+}
+
+div#js-main {
+	margin-top: 80px;
+}
+
+div.select-a-story {
+	text-align: center;
+	font-size: 50px;
+	color: rgb(214, 214, 214);
+	position: absolute;
+	top: 50%;
+	width: 100%;
+}
+
+.stories-wrapper {
+	display:none;
+}
+
+.day-group,
+.news-article {
+	@include clearfix;
+}
+
+.news-article-left,
+.news-article-right {
+	float: left;
+	height: $baseline * 6px;
+	h3, .date {
+		line-height: $baseline * 6px;
+	}
+}
+
+.news-article-right {
+	width:750px;
+	padding-left: $baseline * 2px;
+}
+
+$dateWidth : $baseline * 30px;
+.news-article-left {
+	width: $dateWidth;
+}
+
+.day-group {
+	position: relative;
+	margin-bottom: 10px;
+	&:after {
+		$height : 5px;
+		$width : 50px;
+		position: absolute;
+		top: 50%;
+		left: $dateWidth - $width;
+		display: block;
+		content: "";
+		width: $width;
+		height: $height;
+		margin-top: ($height / 2) * -1;
+	}
+}
+
+.day-group {
+	.news-article-right {
+		border-left: 5px solid $blue;
+	}
+
+	&:after {
+		background-color: $blue;
+	}
+}
+
+.date {
+	position: absolute;
+	left: 0;
+	top: 50%;
+	width: 178px;
+	height:$baseline * 6px;
+	margin-top: (($baseline * 6px) / 2) * -1;
+	font-size: 14px;
+	text-align: right;
+}
