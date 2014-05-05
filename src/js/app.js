@@ -7,7 +7,7 @@
 
 window.cnews = window.cnews || {};
 
-window.cnews.api                 = "http://api.cnewsbit.es:8080/CNewsBites-API/webapi/myresource";
+window.cnews.api                 = "http://api.cnewsbit.es:8080/CNewsBites-API/api/story";
 window.cnews.newsArticleTemplate = $("#news-story-template").html();
 window.cnews.$main               = $("#js-main");
 
