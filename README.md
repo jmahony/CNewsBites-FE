@@ -10,9 +10,6 @@ CNewsBites Website
 
 [S3cmd](http://s3tools.org/download) (optional)
 
-# Documentation
-TODO: Add documentation
-
 # Building
 Clone the repository
 ```
