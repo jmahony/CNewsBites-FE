@@ -19,7 +19,6 @@
 
         <antcall target="js.minify"></antcall>
         <antcall target="compass"></antcall>
-        <antcall target="puts3"></antcall>
     </target>
 
     <target name="js.minify">
@@ -59,7 +58,7 @@
         <echo message="Stylesheets Compiled!" />
     </target>
 
-    <target name="puts3">
+    <target name="deploy">
         <echo message="Uploading To AWS" />
         <exec executable="/bin/bash" failonerror="true">
             <arg value="-c" />
