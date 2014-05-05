@@ -26,7 +26,8 @@ cd CNewsBites-FE && ant
 
 # S3 Deploy
 Deploying requires S3cmd to be installed and configured. Simply create a file ~/.s3cfg with the below:
-```[default]
+```xml
+[default]
 access_key = XXXXXXXXXXXXXXXXXX
 secret_key = XXXXXXXXXXXXXXXXXX
 ```
