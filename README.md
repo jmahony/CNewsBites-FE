@@ -4,11 +4,9 @@ CNewsBites Front End
 CNewsBites Website
 
 # Dependencies
-[Compass](http://compass-style.org/)
-
-[Ant](http://ant.apache.org/)
-
-[S3cmd](http://s3tools.org/download) (optional)
+*    [Compass](http://compass-style.org/)
+*    [Ant](http://ant.apache.org/)
+*    [S3cmd](http://s3tools.org/download) (optional)
 
 # Building
 Clone the repository
